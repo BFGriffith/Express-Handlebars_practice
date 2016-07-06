@@ -1,5 +1,33 @@
-var connection = require('./connection.js');
+var connection = require('./config/connection.js');
 
+var orm = {
+selectAll: function(table){
+        return new Promise(function(resolve, reject){
+            var queryString = 'SELECT * FROM '+ table +'';
+            connection.query(queryString, function(err, res){
+                if (err) throw err;
+                //console.log(res);
+                return resolve(res);
+            });
+        })
+    },
+    app.get('/', function(req,res) {
+        orm.selectAll('burgers').then(function(data){
+            //console.log(data);
+            res.render('index', {burgers: data,
+                helpers: {isAte: function(burger){
+                //console.log(burger);
+                    if (burger.devoured === 1) {
+                        return burger.id+'. '+burger.burgerName;
+                    }else{
+                        return ;
+                    }
+                }},
+            });
+        })
+    });
+};//END orm.js
+/*
 var orm = {
   selectAll: function(tableInput, columnToSearch, valueOfColumn) {
     return new Promise(function(resolve, reject) {
@@ -10,6 +38,7 @@ var orm = {
     });
   }
 };
+*/
 
 /*
 var orm = {
