@@ -3,7 +3,7 @@ var express = require('express');
 var methodOverride = require('method-override');
 var bodyParser = require('body-parser');
 var app = express();
-var expressHandlebars = require('express-handlebars');
+var exphbs = require('express-handlebars');
 var connection = require('./config/connection.js');
 var path = require('path');
 
