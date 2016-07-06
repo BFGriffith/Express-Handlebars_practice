@@ -1,3 +1,8 @@
+var express = require('express');
+var methodOverride = require('method-override');
+var bodyParser = require('body-parser');
+
+var connection = require('./config/connection.js');
 var orm = require('../config/orm.js');
 
 var ateBurgers = orm.selectAll('burgers', 'devoured', true);
