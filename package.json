@@ -1,0 +1,26 @@
+{
+  "name": "express-handlebars_practice",
+  "version": "0.0.0",
+  "description": "Node.js + Express + Handlebars — practice/demo MVC with “burger consumption” theme",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BFGriffith/Express-Handlebars_practice.git"
+  },
+  "keywords": [
+    "node.js",
+    "express",
+    "handlebars",
+    "MVC"
+  ],
+  "author": "BFGriffith",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BFGriffith/Express-Handlebars_practice/issues"
+  },
+  "homepage": "https://github.com/BFGriffith/Express-Handlebars_practice#readme"
+}
