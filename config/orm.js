@@ -1,5 +1,33 @@
 var connection = require('./connection.js');
 
-var orm = {};
+var orm = {
+  selectAll: function(table) {
+    return new Promise(function(resolve, reject) {
+      var queryString = 'SELECT * FROM ' + table + '';
+      connection.query(queryString, function(err, res) {
+        if (err) throw err;
+        return resolve(res);
+      });
+    })
+  },
+  insertOne: function(table, newObject) {
+    return new Promise(function(resolve, reject) {
+      var queryString = 'INSERT INTO ' + table + ' SET ?';
+      connection.query(queryString, newObject, function(err, res) {
+        if (err) throw err;
+        return resolve(res);
+      });
+    });
+  },
+  updateOne: function(table, column1, column2, columnTwoValue) {
+    return new Promise(function(resolve, reject) {
+      var queryString = 'UPDATE ' + table + ' SET ' + column1 + ' = ? WHERE ' + column2 + ' = ?';
+      connection.query(queryString, [true, columnTwoValue], function(err, res) {
+        if (err) throw err;
+        return resolve(res);
+      });
+    });
+  }
+};//END orm
 
 module.exports = orm;
